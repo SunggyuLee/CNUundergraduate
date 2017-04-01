@@ -1,0 +1,62 @@
+h1{
+  text-align: center;
+  background-color : rgb(109, 173, 232);
+  font-family: HY나무M, sans-serif;
+  color: rgb(18, 68, 134);
+}
+table {
+  border : 1px solid black;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+th {
+  font-size: 20px;
+  font-style : oblique;
+}
+tr.first {
+  background-color : rgb(139, 118, 153);
+  font-family: fantasy;
+}
+/*table .first table 밑에 있는 클래스중 이름이 first인거 참조*/
+tr.second {
+  background-color : rgb(121, 39, 154);
+  font-family: fantasy;
+}
+
+td {
+  height: 50px;
+  width: 150px;
+  border: 1px dotted purple;
+  text-align: center;
+}
+#frame {
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 80px;
+  width: 240px;
+  text-align: center;
+  margin: auto;
+}
+
+#frame div{
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+a:link {
+  font-size: 15px;
+  color: blue;
+}
+a:visited {
+  color: purple;
+}
+a:hover {
+  color: green;
+}
+
+span{
+  font-style: bold;
+  font-size: 18px;
+  color : red;
+}
