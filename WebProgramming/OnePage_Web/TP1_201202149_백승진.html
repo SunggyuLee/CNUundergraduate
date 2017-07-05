@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>TP1 in HTML5 Skeleton</title>
+<!-- CSS, JS External 정의 -->
+<link rel="stylesheet" type="text/css" href="./css/TP1_CSS.css" />
+<script type="text/javascript" src="./js/TP1_JS.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAt6BBBktuxywonLx39plI_S4sqTiEz7SA"></script>
+<script type="text/javascript" src="./js/TP1_Google.js"></script>
+</head>
+<!-- 이미지 슬라이드 첫페이지 호출 -->
+<body onload="showSlides(0)">
+	<header>
+		<!-- Header (Menu bar) -->
+		<div class="Bar">
+			<button class="Menu" onclick="movescroll('Bar')">HOME</button>
+			<button class="Menu"  onclick="movescroll('imageSlide')">IMAGE SLIDE</button>
+			<button class="Menu"  onclick="movescroll('introduce')">INTRODUCE</button>
+			<button class="Menu"  onclick="movescroll('gallery')">GALLERY</button>
+			<button class="Menu"  onclick="movescroll('guestBook')">GUEST BOOK</button>
+			<div id="plus" onmouseover="downDropDown()" onmouseout = "deleteDropDown() " onclick = "fixedDropDown()" >&plus;</div>
+		</div>
+		<div class = "dropdown-contents">
+		<div class="dropdown">
+			<a onclick="movescroll('Bar')">HOME</a>
+			<a onclick="movescroll('imageSlide')">IMAGE SLIDE</a>
+			<a onclick="movescroll('introduce')">INTRODUCE</a>
+			<a onclick="movescroll('gallery')">GALLERY</a>
+			<a onclick="movescroll('guestBook')">GUESTBOOK</a>
+		</div>
+	</div>
+	<!-- Header end (Menu bar) -->
+	</header>
+
+	<main>
+		<!-- Main start -->
+		<div class = "imageSlide" class="slideshow-container">
+			<!-- ImageSlides -->
+  <div class="mySlides">
+    <img src="./img/cover_img/sesamestreet.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+    <img src="./img/cover_img/elmo.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+    <img src="./img/cover_img/bertandernie.jpg" style="width:100%">
+  </div>
+	<div class="mySlides">
+		<img src="./img/cover_img/bigbird.jpg" style="width:100%">
+	</div>
+	<div class="mySlides">
+		<img src="./img/cover_img/count.jpg" style="width:100%">
+	</div>
+	<!-- 좌,우측 버튼 -->
+  <img class="prev" src="./img/slide_button/left.gif" onclick="plusSlides(-1)">
+  <img class="next" src="./img/slide_button/right.gif" onclick="plusSlides(1)">
+<br>
+			<div class = "dots">
+				<!-- 이미지 중앙 밑 버튼 -->
+			  <span class="dot" onclick="currentSlide(0)"></span>
+			  <span class="dot" onclick="currentSlide(1)"></span>
+			  <span class="dot" onclick="currentSlide(2)"></span>
+				<span class="dot" onclick="currentSlide(3)"></span>
+				<span class="dot" onclick="currentSlide(4)"></span>
+			</div>
+		</div>
+
+		<div class = "introduce">
+			<!-- Introduce -->
+			<table class = "table-container">
+				<thead class = "table-container table-center">
+						<th colspan="2">
+							<h1 id = title>Sesame&nbsp;&nbsp;Street</h1>
+						</th>
+				</thead>
+				<tbody class = "table-container table-center">
+					<!-- Google map api -->
+						<td id = "picture">
+							<div id="googleMap"></div>
+						</td>
+						<td id = "contents"><pre>
+<strong>장르 :</strong> 교육, 인형극, 애니메이션
+<strong>방송 국가 :</strong> 미국
+<strong>방송 기간 :</strong> 1969년 11월 10일 ~ 현재
+<strong>방송 분량 :</strong> 60분 (1969–2015) 30분 (2015년부터)
+<strong>방송 시즌 :</strong> 46 시즌
+<strong>방송 횟수 :</strong> 4384
+<strong>기획 :</strong> 조안 간즈 쿠니(Joan Ganz Cooney)
+	로이드 모리셋(Lloyd Morrisett)
+<strong>제작사 :</strong> Children's Television Workshop (1969–2000)
+	세서미 워크샵 (2000년부터)
+<strong>여는 곡 :</strong> &lt;Can You Tell Me How to Get to Sesame Street?&gt;
+<strong>닫는 곡 :</strong> &lt;Smarter, Stronger, Kinder&gt;
+<strong>언어 :</strong> 영어</pre>
+							</td>
+				</tbody>
+				<tfoot class = "table-container table-center">
+					<!-- sesame street 공식사이트 link -->
+					<td colspan="2"><a href="http://www.sesamestreet.org/" target="_blank"><img src="./img/sample_img/logo.png" alt="logo" style="width:200px"></a></td>
+				</tfoot>
+			</table>
+		</div>
+
+		<div class = "gallery">
+			<!-- Gallery -->
+			<div class = "gallery-contents">
+				<div>
+					<div class = "hoverText">Abby</div>
+					<img class = "xButton" src="./img/modal_button/x.PNG" onclick="removeImage(false, 0)">
+					<img class = "gallery-images" alt="Abby"src="./img/sample_img/abby.PNG" onclick="modalWindow(0)" onmouseover="setText(0)" onmouseout="deleteText(0)">
+				</div>
+				<div>
+					<div class = "hoverText">BigBird</div>
+					<img class = "xButton"src="./img/modal_button/x.PNG" onclick="removeImage(false, 1)">
+					<img class = "gallery-images" alt="BigBird" src="./img/sample_img/bigbird.PNG" onclick="modalWindow(1)" onmouseover="setText(1)" onmouseout="deleteText(1)">
+				</div>
+				<div>
+					<div class = "hoverText">Ernie</div>
+					<img class = "xButton"src="./img/modal_button/x.PNG "onclick="removeImage(false, 2)">
+					<img class = "gallery-images" alt="Ernie" src="./img/sample_img/ernie.PNG" onclick="modalWindow(2)" onmouseover="setText(2)" onmouseout="deleteText(2)">
+				</div>
+				<div>
+					<div class = "hoverText">CookieMonster</div>
+					<img class = "xButton"src="./img/modal_button/x.PNG" onclick="removeImage(false, 3)">
+					<img class = "gallery-images" alt="CookieMonster" src="./img/sample_img/moster.PNG" onclick="modalWindow(3)" onmouseover="setText(3)" onmouseout="deleteText(3)">
+				</div>
+			</div>
+		</div>
+			<div id="myModal" class="modal">
+				<!-- modal 창 x버튼으로 제거할 경우 사용 -->
+				<!--<img src="./img/modal_button/x.PNG" id="modalXButton">-->
+				<img class="prev" src="./img/slide_button/left.gif" onclick="showModalImage(-1)">
+				<img class="next" src="./img/slide_button/right.gif" onclick="showModalImage(1)">
+				<img class="modal-content" id="modalImg">
+			</div>
+		<div class = "guestBook" >
+			<!-- Guestbook -->
+			<!--<table class= "table-container guestbook-table">
+				 등록하기 했을 때 생성되는 테이블 샘플 (요구사항을 제대로 구현못했을 때 코드)
+				<tr >
+					<td style = "width : 30%">writer : </td>
+					<td style = "width : 70%">contents</td>
+				</tr>
+				<tr class = "reply">
+					 Reply button
+					<td colspan="2"><button>답글 등록하기</button></td>
+				</tr>
+			</table>-->
+			<table id = "board" class = "table-container">
+				<thead class = "table-container">
+					<th colspan="2" class = "table-center">Guest Book</th>
+				</thead>
+				<tbody class= "table-container guestbook-table">
+					<!-- 등록하기 했을 때 생성되는 테이블 샘플 -->
+					<tr>
+						<td style = "width : 30%">writer : </td>
+						<td style = "width : 70%">contents</td>
+					</tr>
+					<tr class = "reply">
+						<td colspan="2"><button>답글 등록하기</button></td>
+					</tr>
+					<!-- 샘플 테이블 끝 -->
+				</tbody>
+				<tbody class = "table-container">
+					<tr>
+						<td class="table-center">Writer</td>
+						<td><input type="text" name="writer" style="width:99%; height:22px"></td>
+					</tr>
+					<tr>
+						<td class="table-center">Contents</td>
+						<td><textarea name="content" rows="10" style="width:99%"></textarea></td>
+					</tr>
+				</tbody>
+				<tfoot class = "table-container">
+					<td colspan="2" class="table-center"><button onclick="createTable()" style="font-family: AR JULIAN, sans-serif">update</button></td>
+				</tfoot>
+			</table>
+		</div>
+		<!-- Main end -->
+	</main>
+
+	<footer>
+		<!-- Footer -->
+		<!-- &nbsp;는 스페이스바 한번 이랑 같다 -->
+		<!--posted by CNU &nbsp;&nbsp; 201202149 &nbsp;&nbsp;백승진 &nbsp;&nbsp;bsj1048@naver.com-->
+		<pre>postrd by CNU     201202149     백 승 진     bsj1048@naver.com</pre>
+	</footer>
+
+</body>
+
+</html>

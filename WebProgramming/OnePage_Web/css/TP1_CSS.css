@@ -1,0 +1,376 @@
+@CHARSET "UTF-8";
+/* Menu bar Start */
+body {
+  width : 100%;
+  margin : 0px;
+}
+
+div.Bar {
+    z-index: 5;
+    position: relative;
+    width : 100%;
+    border: 2px solid black;
+    overflow: hidden;
+    background-image: -webkit-linear-gradient(top, rgb(235, 255, 0), rgb(216, 250, 102));
+}
+
+div.Bar button {
+    color : black;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    float: left;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+div.Bar button:hover {
+  background: rgb(199, 197, 0);
+  cursor: pointer;
+}
+
+/* 메뉴바 우측 dropdown메뉴 시작 */
+#plus {
+  font-size: 40px;
+  float : right;
+  color : black;
+  width: 48px;
+  height : 48px;
+  line-height: 38px;
+  text-align: center;
+}
+
+#plus:hover{
+  cursor: pointer;
+}
+
+/* mymove를 이용해 위에서부터 내려온다.*/
+.dropdown-contents .dropdown{
+  z-index : 2;
+  display: none;
+  -webkit-animation: mymove 2s;
+  animation: mymove 2s;
+}
+
+@-webkit-keyframes mymove {
+    from {top : -50%;}
+    to {top: 8%;}
+}
+
+keyframes mymove {
+    from {top: -50%;}
+    to {top: 8%;}
+}
+/*이 때 bar보다는 낮은 표면에 위치해서 가려진다 */
+.dropdown {
+    z-index : -1;
+    display: none;
+    right : 0;
+    position: absolute;
+    background-color: #e3e10a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown a {
+    cursor: pointer;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/* Menu bar End */
+
+/* Main Start */
+/* 전반적인 뒷배경은 투명도가 있어서 흐리다*/
+/*imageSlide는 맨 밑에 따로 나머지는 순서대로 나열*/
+.imageSlide, .gallery{
+  display: table;
+	background-color : rgba(242, 245, 95, 0.3);
+	outline : none;
+	width : 100%;
+	height : 200px;
+}
+/* introduce start */
+.introduce {
+  display: table;
+	background-color : rgb(242, 245, 95);
+	outline : none;
+	width : 100%;
+	height : 384px;
+}
+
+.introduce > .table-container{
+  background-image : -webkit-linear-gradient(top, yellow, white);
+}
+
+
+.table-container {
+  border : 1px solid black;
+  border-spacing: 0px;
+  width: 100%;
+  height: inherit;
+}
+
+
+.table-container th, td {
+  border : 1px solid black;
+}
+
+thead th.table-center {
+  font-size : 30px;
+  padding: 10px 0;
+}
+
+.table-center{
+  font-size: 20px;
+  padding : 5px;
+  font-family: AR JULIAN, sans-serif;
+  text-align: center;
+  align-content: center;
+}
+
+tfoot img {
+  margin: 20px 0;
+}
+
+#title {
+  font-size : 40px;
+  font-family: AR JULIAN, sans-serif;
+}
+
+#picture, #contents {
+  width: 50%;
+}
+
+#contents pre{
+  margin-left: 30px;
+  text-align : left;
+  font-size : 13px;
+  font-family: "맑은고딕", sans-serif;
+}
+
+#googleMap{
+  height:100%;
+}
+/* introduce end*/
+
+/*gallery start*/
+.gallery-contents div{
+  position: relative;
+  display : inline-block;
+}
+
+.gallery-contents .gallery-images{
+  height : 200px;
+}
+
+.gallery-images {
+  cursor: pointer;
+  transition: 0.3s;
+  width : 200px;
+}
+
+.gallery-images:hover {
+  opacity: 0.5;
+}
+/* mouse over 아닐 시, 투명도 0로 보이지 않고 위치는 absolute로 부모위치 안에서 절댓값위치로 지정*/
+/* top, left 50%로 주면 좌측상단기준으로 중앙으로 가기때문에 translate속성으로 중앙을 맞춰준다*/
+div .hoverText {
+  opacity: 0;
+  position : absolute;
+  top : 50%;
+  left : 50%;
+  transform: translate(-50%, -50%);
+  color : white;
+  font-size: 10px;
+  padding: 10px 20px;
+  background-color: rgb(12, 219, 27);
+}
+/*mouse over 시, 투명도 1로 보이게 함*/
+div .hoverText:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+/* x버튼 z-index 1에 absolute로 좌측상단 고정 */
+.xButton {
+  z-index: 1;
+  cursor: pointer;
+  position: absolute;
+  margin: 0px;
+  border: none;
+  outline: none;
+}
+
+.xButton:hover {
+  opacity: 0.9;
+}
+
+/* The Modal : 기본은 none이고 보여지게되면 전체를 어둡게 뒤덥는다 */
+/* contents는 고정되서 스크롤움직임에 따라 따라 움직인다 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+/* Modal Content */
+/* Modal 내에서 이미지는 정중앙 */
+.modal-content {
+    margin: auto;
+    position: absolute;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%, -50%);
+    display: block;
+    width: 60%;
+    max-width: 500px;
+}
+/* 모달창 x버튼으로 닫을 때 사용*/
+/*#modalXButton {
+  z-index: 3;
+  position: absolute;
+  top : 0;
+  left : 0;
+}
+
+#modalXButton:hover {
+  cursor : pointer;
+}*/
+
+.guestbook{
+  background-color : rgb(242, 245, 95);
+  outline : none;
+  width : 100%;
+  height : auto;
+}
+
+.guestbook-table {
+  display: none;
+  font-family: AR JULIAN, "양재깨비체B", sans-serif;
+  margin-bottom: 5px;
+}
+/* 필요에 따라 nth-child를 이용해서 특정 태그에 그라데이션 효과 */
+.guestbook-table tr:nth-child(1) td:nth-child(1) {
+  background-image:-webkit-linear-gradient(right, rgb(252, 211, 62), rgb(250, 150, 0));
+}
+
+.guestbook-table tr:nth-child(1) td:nth-child(2) {
+  background-image: -webkit-linear-gradient(right, rgb(255, 230, 143),rgb(252, 211, 62));
+}
+
+.reply {
+  text-align: right;
+  background-image: -webkit-linear-gradient(right, rgb(255, 230, 143), rgb(250, 150, 0));
+  /* box-shadow: 0px 10px 10px -6px orange;*/
+  /* 방명록 제목 위에 생성하게 만들었을 때, 외관상 보기좋게 하기위해 그림자 효과 */
+}
+
+#board.table-container {
+  background-image: -webkit-linear-gradient(bottom, rgb(255, 230, 143),rgb(250, 150, 0));
+}
+
+#board > thead {
+  background-color: rgb(238, 136, 0);
+}
+
+/* Main End */
+
+/* Footer Start */
+footer{
+    background-image: -webkit-linear-gradient(top,rgb(216, 250, 102), rgb(235, 255, 0));
+    display: block;
+    color : black;
+    font-size: 15px;
+    text-align: center;
+    padding: 14px;
+}
+/* pre태그에 효과적용 */
+footer *{
+  font-family: AR JULIAN, "양재깨비체B", cursive;
+}
+/* Footer End */
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+/* 기본적으로 이미지들 display:none*/
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  border-left : 2px solid black;
+  border-right : 2px solid black;
+  border-bottom : 2px solid black;
+  height: 500px;
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  z-index: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  transition: 0.6s ease;
+  border-radius: 30%;
+}
+
+/* next button 위치 */
+.next {
+  right: 0;
+  margin-right: 10px;
+}
+/* prev button 위치 */
+.prev {
+  left: 0;
+  margin-left: 10px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 50%;
+}
+/* dots의 위치 중앙 밑 */
+.dots{
+  width: 100%;
+  position: absolute;
+  text-align : center;
+  bottom : 15%;
+}
+/* dot들 설정 */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #ff8686;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #ff4141;
+}
+
+
+/*#googleMap {
+  width: 100%;
+  height: 400px;
+}*/

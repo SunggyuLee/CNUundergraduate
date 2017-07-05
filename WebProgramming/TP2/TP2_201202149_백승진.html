@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>TP2</title>
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAt6BBBktuxywonLx39plI_S4sqTiEz7SA"></script>
+		<link rel="stylesheet" href="./CSS/TP2_201202149_백승진.css" type="text/css">
+		<script type="text/javascript" src="./JS/MapAPI.js"></script>
+		<script type="text/javascript" src="./JS/DownListBar.js"></script>
+		<script type="text/javascript" src="./JS/showImage.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<div class="Member" onmouseover="removeDownList()">
+				<a onclick="location.href='join.jsp'">회원가입</a> <a
+					onclick="location.href='login.jsp'">로그인</a>
+			</div>
+      <!-- 키워드별로 필터링할 메뉴 부분 -->
+      <div class="Bar">
+        <button onmouseover="showDownList(5)" onclick="changeMarker('all')">전체보기</button>
+        <button onmouseover="showDownList(0)" onclick="changeMarker('hot')">명소</button>
+        <button onmouseover="showDownList(1)" onclick="changeMarker('street')">거리</button>
+        <button onmouseover="showDownList(2)" onclick="changeMarker('asset')">문화재</button>
+        <button onmouseover="showDownList(3)" onclick="changeMarker('park')">놀이공원</button>
+        <button onmouseover="showDownList(4)" onclick="showMyLike()"><span>아이고</span></button>
+      </div>
+
+      <!-- Bar에 mouse hover시 하위 메뉴 -->
+      <div class="extraBar">
+        <a class='hot' onclick="focusNewLocation('hot', 0)">#남산타워</a>
+        <a class='hot' onclick="focusNewLocation('hot', 1)">#명동성당</a>
+        <a class='hot' onclick="focusNewLocation('hot', 2)">#하늘공원</a>
+        <a class='hot' onclick="focusNewLocation('hot', 3)">#디뮤지엄</a>
+        <a class='hot' onclick="focusNewLocation('hot', 4)">#예술의 전당</a>
+        <a class='hot' onclick="focusNewLocation('hot', 5)">#뚝섬한강공원</a>
+      </div>
+      <!-- Bar에 mouse hover시 하위 메뉴 -->
+      <div class="extraBar">
+        <a class='street' onclick="focusNewLocation('street', 0)">#망리단길</a>
+        <a class='street' onclick="focusNewLocation('street', 1)">#강풀만화거리</a>
+        <a class='street' onclick="focusNewLocation('street', 2)">#홍대벽화거리</a>
+        <a class='street' onclick="focusNewLocation('street', 3)">#경리단길</a>
+      </div>
+      <!-- Bar에 mouse hover시 하위 메뉴 -->
+      <div class="extraBar">
+        <a class='asset' onclick="focusNewLocation('asset', 0)">#한옥마을</a>
+        <a class='asset' onclick="focusNewLocation('asset', 1)">#경복궁</a>
+        <a class='asset' onclick="focusNewLocation('asset', 2)">#덕수궁</a>
+        <a class='asset' onclick="focusNewLocation('asset', 3)">#경희궁</a>
+      </div>
+      <!-- Bar에 mouse hover시 하위 메뉴 -->
+      <div class="extraBar">
+        <a class='park' onclick="focusNewLocation('park', 0)">#롯데월드</a>
+        <a class='park' onclick="focusNewLocation('park', 1)">#서울대공원</a>
+        <a class='park' onclick="focusNewLocation('park', 2)">#어린이교통공원</a>
+      </div>
+      <!-- Bar에 mouse hover시 하위 메뉴 -->
+      <div class="extraBar">
+        #
+      </div>
+
+
+    </header>
+
+    <main onmouseover="removeDownList()">
+      <!-- 앞으로 본격적인 구글 맵 API작업을 하게 될 공간 -->
+      <div id="googleMap"></div>
+			<!-- 마커 클릭시 활성화 되는 공간 -->
+			<div id="myModal" class="modal">
+				<table>
+					<tr>
+						<td>
+							<img class="modal-content" id="modalImg">
+						</td>
+						<td class="modal-text">
+							<p id="modalText">contents</p>
+						</td>
+					</tr>
+
+				</table>
+			</div>
+    </main>
+
+    <footer>
+      <!-- footer -->
+      <pre>copyright by 201202149 Seung Jin Baek</pre>
+    </footer>
+  </body>
+</html>
